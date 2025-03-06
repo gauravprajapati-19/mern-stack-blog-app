@@ -1,2 +1,2 @@
-# mern-stack-blog-app
-This is my Blog app made in MERN Stack.
+# mern-blog-app
+This is my Blog app made in MERN Stack

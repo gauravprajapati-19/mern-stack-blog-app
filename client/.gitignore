@@ -2,15 +2,12 @@
 build/
 node_modules/
 
-# Ckient-side specific files
-client/node_modules/
-# client/src/assets/images/
-
 # Server-side specific files
 server/node_modules/
+server/uploads/
 
 # Environment variables
-client/.env
+.env
 server/.env
 
 # IDE-specific files
