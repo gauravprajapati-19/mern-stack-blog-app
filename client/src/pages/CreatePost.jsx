@@ -3,7 +3,7 @@ import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import { UserContext } from "../context/userContext";
 import { useNavigate } from "react-router-dom";
-import axios from 'axios';
+import axios from "axios";
 
 const CreatePost = () => {
     const [title, setTitle] = useState("");
@@ -22,7 +22,7 @@ const CreatePost = () => {
         if (!token) {
             navigate("/login");
         }
-    }, []);
+    }, [navigate, token]);
 
     const modules = {
         toolbar: [
@@ -42,15 +42,18 @@ const CreatePost = () => {
         e.preventDefault();
 
         const postData = new FormData();
-        postData.set('title', title);
-        postData.set('category', category);
-        postData.set('description', description);
-        postData.set('thumbnail', thumbnail);
+        postData.set("title", title);
+        postData.set("category", category);
+        postData.set("description", description);
+        postData.set("thumbnail", thumbnail);
 
         try {
-            const response = await axios.post(`${process.env.REACT_APP_BASE_URL}/posts`, postData, { withCredentials: true, headers: { Authorization: `Bearer ${token}` } });
-            if (response.status == 201) {
-                return navigate('/');
+            const response = await axios.post(`${process.env.REACT_APP_BASE_URL}/posts`, postData, {
+                withCredentials: true,
+                headers: { Authorization: `Bearer ${token}` },
+            });
+            if (response.status === 201) {
+                return navigate("/");
             }
         } catch (err) {
             setError(err.response.data.message);

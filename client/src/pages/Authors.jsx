@@ -1,29 +1,29 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import axios from 'axios';
-import Loader from '../components/Loader'
+import axios from "axios";
+import Loader from "../components/Loader";
 
 const Authors = () => {
     const [authors, setAuthors] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
 
-    useEffect(()=> {
+    useEffect(() => {
         const getAuthors = async () => {
             setIsLoading(true);
-        try {
-            const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/users`)
-            setAuthors(response.data);
-        } catch (error) {
-            console.log(error);
-        }
-        setIsLoading(false);
-        }
+            try {
+                const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/users`);
+                setAuthors(response.data);
+            } catch (error) {
+                console.log(error);
+            }
+            setIsLoading(false);
+        };
 
         getAuthors();
-    }, [])
+    }, []);
 
-    if(isLoading) {
-        return <Loader />
+    if (isLoading) {
+        return <Loader />;
     }
 
     return (
@@ -34,7 +34,7 @@ const Authors = () => {
                         return (
                             <Link key={id} to={`/posts/users/${id}`} className="author">
                                 <div className="author_avatar">
-                                    <img src={`${process.env.REACT_APP_ASSETS_URL}/uploads/${avatar}`} alt={`Image of ${name}`} />
+                                    <img src={`${process.env.REACT_APP_ASSETS_URL}/uploads/${avatar}`} alt={`${name}`} />
                                 </div>
                                 <div className="author_info">
                                     <h4>{name}</h4>

@@ -23,7 +23,7 @@ const EditPost = () => {
         if (!token) {
             navigate("/login");
         }
-    }, []);
+    }, [navigate, token]);
 
     const modules = {
         toolbar: [
@@ -52,7 +52,7 @@ const EditPost = () => {
         };
 
         getPost();
-    }, [id]);
+    }, [id, category]);
 
     const editPost = async (e) => {
         e.preventDefault();
@@ -68,7 +68,7 @@ const EditPost = () => {
                 withCredentials: true,
                 headers: { Authorization: `Bearer ${token}` },
             });
-            if (response.status == 200) {
+            if (response.status === 200) {
                 return navigate("/");
             }
         } catch (err) {

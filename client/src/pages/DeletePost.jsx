@@ -17,7 +17,7 @@ const DeletePost = ({ postId: id }) => {
         if (!token) {
             navigate("/login");
         }
-    }, []);
+    }, [navigate, token]);
 
     const removePost = async () => {
         setIsLoading(true);
@@ -26,8 +26,8 @@ const DeletePost = ({ postId: id }) => {
                 withCredentials: true,
                 headers: { Authorization: `Bearer ${token}` },
             });
-            if (response.status == 200) {
-                if (location.pathname == `/myposts/${currentUser.id}`) {
+            if (response.status === 200) {
+                if (location.pathname === `/myposts/${currentUser.id}`) {
                     navigate(0);
                 } else {
                     navigate("/");

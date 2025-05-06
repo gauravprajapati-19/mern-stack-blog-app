@@ -8,7 +8,7 @@ const AuthorPosts = () => {
     const [posts, setPosts] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
 
-    const {id} = useParams();
+    const { id } = useParams();
 
     useEffect(() => {
         const fetchPosts = async () => {
@@ -24,7 +24,7 @@ const AuthorPosts = () => {
         };
 
         fetchPosts();
-    }, []);
+    }, [id]);
 
     if (isLoading) {
         return <Loader />;
