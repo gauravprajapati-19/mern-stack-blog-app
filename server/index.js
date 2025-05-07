@@ -13,7 +13,7 @@ app.use(express.json({ extended: true }));
 app.use(express.urlencoded({ extended: true }));
 
 // ✅ Updated CORS configuration
-const allowedOrigins = ['http://localhost:3000', 'http://3.6.69.181:3000'];
+const allowedOrigins = ['http://localhost:3000', 'http://3.6.69.181:3000', 'https://nextechdev.site'];
 app.use(cors({
     origin: function (origin, callback) {
         if (!origin || allowedOrigins.includes(origin)) {
