@@ -7,9 +7,9 @@ const Footer = () => {
     return (
         <footer>
             <ul className="footer_categories">
-                {categories.map((category) => {
+                {categories.map((item, category) => {
                     return (
-                        <li>
+                        <li key={item}>
                             <Link to={`/posts/categories/${category}`}>{`${category}`}</Link>
                         </li>
                     );
