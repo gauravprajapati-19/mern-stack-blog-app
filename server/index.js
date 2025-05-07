@@ -14,7 +14,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors({ credentials: true, origin: "http://localhost:3000" }));
 
 // ✅ Updated CORS configuration
-const allowedOrigins = ['http://localhost:3000', 'http://3.6.69.181:3000', 'https://nextechdev.site'];
+const allowedOrigins = ['http://localhost:3000', 'https://nextechdev.site'];
 app.use(cors({
     origin: function (origin, callback) {
         if (!origin || allowedOrigins.includes(origin)) {
