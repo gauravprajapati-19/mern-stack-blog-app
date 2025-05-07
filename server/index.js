@@ -11,6 +11,9 @@ const { notFound, errorHandler } = require("./middleware/errorMiddleware");
 const app = express();
 app.use(express.json({ extended: true }));
 app.use(express.urlencoded({ extended: true }));
+<<<<<<< HEAD
+app.use(cors({ credentials: true, origin: "http://localhost:3000" }));
+=======
 
 // ✅ Updated CORS configuration
 const allowedOrigins = ['http://localhost:3000', 'http://3.6.69.181:3000', 'https://nextechdev.site'];
@@ -25,6 +28,7 @@ app.use(cors({
     credentials: true
 }));
 
+>>>>>>> 78b83ca132d688c15ce4654961a793ff14681328
 app.use(upload());
 app.use("/uploads", express.static(__dirname + "/uploads"));
 
