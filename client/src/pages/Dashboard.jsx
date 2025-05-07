@@ -19,7 +19,7 @@ const Dashboard = () => {
         if (!token) {
             navigate("/login");
         }
-    }, []);
+    }, [navigate, token]);
 
     useEffect(() => {
         const fetchPosts = async () => {
@@ -37,7 +37,7 @@ const Dashboard = () => {
         };
 
         fetchPosts();
-    }, [id]);
+    }, [id, token]);
 
     if (isLoading) {
         return <Loader />;

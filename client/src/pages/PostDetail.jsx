@@ -27,7 +27,7 @@ const PostDetail = () => {
         };
 
         getPost();
-    }, []);
+    }, [id]);
 
     if (isLoading) {
         return <Loader />;

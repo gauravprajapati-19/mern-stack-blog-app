@@ -26,7 +26,7 @@ const UserProfile = () => {
         if (!token) {
             navigate("/login");
         }
-    }, []);
+    }, [navigate, token]);
 
     useEffect(() => {
         const getUser = async () => {
@@ -41,7 +41,7 @@ const UserProfile = () => {
         };
 
         getUser();
-    }, []);
+    }, [currentUser.id, token]);
 
     const changeAvatarHandler = async () => {
         setIsAvatarTouched(false);
