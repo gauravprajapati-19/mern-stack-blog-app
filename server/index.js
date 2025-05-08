@@ -18,9 +18,11 @@ const allowedOrigins = ['http://localhost:3000', 'http://nextechdev.site', 'http
 app.use(cors({
     origin: function (origin, callback) {
         if (!origin || allowedOrigins.includes(origin)) {
+            console.log("✅ Allowed CORS Origin:", origin);
             callback(null, true);
         } else {
-            callback(new Error('Not allowed by CORS'));
+            console.warn("⛔ Blocked CORS Origin:", origin);
+            callback(new Error("Not allowed by CORS"));
         }
     },
     credentials: true
